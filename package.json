@@ -23,7 +23,6 @@
     "ejs":"*",
     "morgan": "*"
 
-  },
-  "type":"module"
+  }
 
 }
