@@ -1,7 +1,7 @@
-const neo4j=require('neo4j-driver')
-var driver=neo4j.driver('bolt://localhost:7687',neo4j.auth.basic("neo4j","ironman3"));
+import { driver as _driver, auth } from 'neo4j-driver';
+var driver=_driver('bolt://localhost:7687',auth.basic("neo4j","ironman3"));
 var session=driver.session();
-   async function nodeCall (node_name){
+ async function nodeCall(node_name){
         const nodes= await session.run(`MATCH(x:${node_name}) RETURN x`);
         nodes.records.forEach(function(record){
             console.log(record._fields[0]);
@@ -9,5 +9,6 @@ var session=driver.session();
      
     }
     
-nodeCall('Person')
-exports.nodeCall=nodeCall
+
+const _nodeCall = nodeCall;
+export { _nodeCall as nodeCall };

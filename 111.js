@@ -1,2 +1,3 @@
-const nodeCall=require('./test.js')
-nodeCall('Person')
+import  {nodeCall} from './test.js'
+await nodeCall('Person')
+await nodeCall('Movie')
